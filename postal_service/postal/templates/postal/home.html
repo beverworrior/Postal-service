@@ -1,0 +1,20 @@
+{% extends 'postal/base.html' %}
+
+{% block title %}Home - Postal Service{% endblock %}
+
+{% block content %}
+<h1>Welcome to Postal Service</h1>
+<ul>
+    {% for parcel in parcels %}
+    <li>
+        <strong>{{ parcel.sender }}</strong> to <strong>{{ parcel.recipient }}</strong> - Status: {{ parcel.status }}
+        {% if user.is_authenticated %}
+        <a href="{% url 'edit_parcel' parcel.pk %}">Edit</a>
+        <a href="{% url 'delete_parcel' parcel.pk %}">Delete</a>
+        {% endif %}
+    </li>
+    {% empty %}
+    <li>No parcels found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'postal/base.html' %}
+
+{% block title %}Delete Parcel - Postal Service{% endblock %}
+
+{% block content %}
+<h1>Delete Parcel</h1>
+<p>Are you sure you want to delete the parcel from <strong>{{ parcel.sender }}</strong> to <strong>{{ parcel.recipient }}</strong>?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
+{% endblock %}
