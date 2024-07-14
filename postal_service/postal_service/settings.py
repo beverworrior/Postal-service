@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#uq+*v8(af!&v=$=d42($r(l4))i(w0jo176jn7x#(j#zd*ddm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-beverworrio-postalservi-4j21xu6zq8p.ws-eu115.gitpod.io']
+ALLOWED_HOSTS = ['8000-beverworrio-postalservi-pwtt93mtygu.ws-eu115.gitpod.io']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'postal_service.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,10 +75,12 @@ WSGI_APPLICATION = 'postal_service.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+        'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    
     }
+
 }
 
 
@@ -117,7 +119,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'postal_service/static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
